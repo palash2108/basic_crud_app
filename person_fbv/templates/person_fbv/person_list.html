@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'person_fbv:person_list' %}">People Details</a></h2>
+
+<ul>
+    {% for person in object_list %}
+    <li>{{ person.name }}  ({{ person.phone }} )
+    <a href="{% url 'person_fbv:person_edit' person.id %}">edit</a>
+    <a href="{% url 'person_fbv:person_delete' person.id %}">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'person_fbv:person_new' %}">Add new individual</a>
+
+{% endblock %}
